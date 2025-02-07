@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>fqt</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <!-- 左侧导航 -->
+    <div id="nav-container"></div>
+
+    <!-- 右侧内容 -->
+    <div id="content-container">
+        <!-- 默认加载的第一个页面内容将在这里显示 -->
+    </div>
+</div>
+
+<script src="main.js"></script>
+<script>
+    // 加载左侧导航栏
+    fetch('nav.html')
+        .then(response => response.text())
+        .then(html => document.getElementById('nav-container').innerHTML = html);
+
+    // 默认加载第一个页面内容
+    loadContent('page0');
+</script>
+
+</body>
+</html>
