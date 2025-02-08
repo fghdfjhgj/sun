@@ -1,4 +1,21 @@
 <div id="page1" class="content active">
-    <h1>检测设备</h1>
-    <p></p>
+    <!DOCTYPE html>
+    <html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8">
+        <title>FPT 刷机应用 - 检测设备</title>
+        <link rel="stylesheet" href="styles.css">
+        <!-- 引入外部的JavaScript文件 -->
+        <script src="main.js" defer></script>
+    </head>
+    <body>
+        <div class="content">
+            <h1>设备检测页面</h1>
+            <!-- 使用onclick属性直接调用JavaScript函数 -->
+            <button id="detectButton" onclick="detect_device()">连接设备</button>
+            <!-- 新增的显示框 -->
+            <div id="outputBox" class="output-box"></div>
+        </div>
+    </body>
+    </html>
 </div>

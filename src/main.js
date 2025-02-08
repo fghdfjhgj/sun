@@ -16,7 +16,14 @@ async function showContent(pageId) {
   await loadContent(pageId);
   document.getElementById(pageId).style.display = 'block';
 }
+async function detectDevice() {
+    let res=await invoke("detect_device");
+    if (res===true){
+        
+    }else{
 
+    }
+}
 
 
 

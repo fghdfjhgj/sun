@@ -3,7 +3,6 @@ body {
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
-   
 }
 
 .container {
@@ -43,10 +42,7 @@ body {
     flex-grow: 1;
     padding: 20px;
     background-color: white;
-}
-
-.content.active {
-    display: block;
+    overflow-y: auto; /* 如果内容超出容器高度，则启用滚动 */
 }
 
 .content h1 {
@@ -55,4 +51,36 @@ body {
 
 .content p {
     line-height: 1.6;
+}
+
+/* 添加输出框样式 */
+.output-box {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    width: 100%; /* 确保宽度占满整个内容区 */
+    box-sizing: border-box; /* 确保padding和border包含在width之内 */
+    text-align: left;
+    font-size: 14px;
+    color: #333;
+    min-height: 100px; /* 增加最小高度 */
+    max-height: 300px; /* 设置最大高度 */
+    overflow-y: auto; /* 当内容超过最大高度时显示垂直滚动条 */
+}
+
+/* 调整按钮样式 */
+#detectButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+}
+
+#detectButton:hover {
+    background-color: #0056b3;
 }
