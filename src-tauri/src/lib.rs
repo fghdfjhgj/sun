@@ -166,7 +166,7 @@ pub mod commands {
     /// 返回值:
     /// - 包含系统构建安全补丁版本的字符串
     #[tauri::command]
-    fn get_phone_system_bbuild_version_security(id: String) -> String {
+    fn get_phone_system_build_version_security(id: String) -> String {
         let res = get_no_root_phone_data(str_to_cstr(id));
         unsafe {
             let data_ref = &mut *res;
