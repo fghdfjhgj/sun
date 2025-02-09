@@ -16,12 +16,41 @@ async function showContent(pageId) {
   await loadContent(pageId);
   document.getElementById(pageId).style.display = 'block';
 }
-async function detectDevice() {
-    let res=await invoke("detect_device");
-    if (res===true){
-        
-    }else{
+async function detect_device() {
+    try {
+        // 调用名为 'detect_device' 的命令，并等待其完成
+        let res = await invoke("detect_device");
 
+        // 根据 detect_device 的结果选择调用哪个命令或设置默认消息
+        let result;
+        if (res === 0) {
+            result = await invoke('device_adb');
+            console.log("ADB devices fetched successfully");
+        } else if (res === 1) {
+
+
+            result = await invoke('device_fastboot');
+            console.log("Fastboot devices fetched successfully");
+        } else if (res === 2) {
+            result = "无法识别设备状态或设备未连接";
+        } else {
+            result = "未知的错误";
+            console.warn(`Unexpected response from detect_device: ${res}`);
+        }
+
+        // 获取 HTML 元素 outputBox 并更新其内容
+        const outputBox = document.getElementById('outputBox');
+        if (outputBox) {
+            outputBox.innerHTML = result;
+        } else {
+            console.error('Element with ID "outputBox" not found.');
+        }
+    } catch (error) {
+        console.error('Failed to invoke commands:', error);
+        const outputBox = document.getElementById('outputBox');
+        if (outputBox) {
+            outputBox.innerHTML = "Error fetching device list.";
+        }
     }
 }
 

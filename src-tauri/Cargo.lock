@@ -4041,9 +4041,9 @@ dependencies = [
 
 [[package]]
 name = "t3_lib_rust"
-version = "0.1.65"
+version = "0.1.66"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "3fb597e5e395c2bbd2c6ef8591def889571b9270e3ca38ce2dad9edee382b067"
+checksum = "033c916e41e645dafc783261556410c969a2977c9ec359b7c2ffe73eae58217a"
 dependencies = [
  "cbindgen",
  "diesel",
