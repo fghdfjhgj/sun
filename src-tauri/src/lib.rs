@@ -3,7 +3,6 @@ pub mod commands{
     use t3_lib_rust::other_flash_phone::{adb_devices_phone,
                                          fastboot_devices_phone,
                                          get_no_root_phone_data};
-    use t3_lib_rust::other_flash_phone::NoRootPhoneData;
     // Learn more about Tauri commands at https://tauri.app/develop/calling-rust/
     use t3_lib_rust::other_utils::*;
     #[tauri::command]
@@ -56,13 +55,128 @@ pub mod commands{
         }
     }
     #[tauri::command]
-    fn get_phone_android_bootloader(id:String)->String{
+    fn get_phone_bootloader_if_start(id:String)->String{
         let res=get_no_root_phone_data(str_to_cstr(id));
         unsafe {
             let data_ref = &mut *res;
             cstring_to_string(data_ref.ro_bootloader).expect("error")
         }
     }
+    #[tauri::command]
+    fn get_phone_android_kernel_version(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.kernel_version).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_system_build_description(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_build_description).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_system_build_id(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_build_id).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_system_bbuild_version_security(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_build_version_security_patch).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_system_cpu_abi(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_cpu_abi).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_product_model(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_product_model).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_kernel_qemu(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_kernel_qemu).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_hardware(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_hardware).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_ro_product_brand(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_product_brand).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_ro_product_device(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_product_device).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_ro_product_manufacturer(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_product_manufacturer).expect("error")
+        }
+    }
+    #[tauri::command]
+    fn get_phone_modem_software_version(id:String)->String{
+        let res=get_no_root_phone_data(str_to_cstr(id));
+        unsafe {
+            let data_ref = &mut *res;
+            cstring_to_string(data_ref.ro_modem_software_version).expect("error")
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     #[tauri::command]
     fn device_adb() ->String{
         cstring_to_string(adb_devices_phone()).expect("error")
