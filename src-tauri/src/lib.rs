@@ -14,6 +14,7 @@ pub mod commands {
     ///
     /// 返回值:
     /// - 包含问候语的字符串
+    ///
     #[tauri::command]
     fn greet(name: &str) -> String {
         format!("Hello, {}! You've been greeted from Rust!", name)
