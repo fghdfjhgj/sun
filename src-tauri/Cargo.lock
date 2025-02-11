@@ -3944,6 +3944,7 @@ checksum = "13c2bddecc57b384dee18652358fb23172facb8a2c51ccc10d74c157bdea3292"
 name = "sun"
 version = "0.1.0"
 dependencies = [
+ "serde_json",
  "t3_lib_rust",
  "tauri",
  "tauri-build",
@@ -4039,15 +4040,19 @@ dependencies = [
 
 [[package]]
 name = "t3_lib_rust"
-version = "0.1.66"
+version = "0.1.67"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "033c916e41e645dafc783261556410c969a2977c9ec359b7c2ffe73eae58217a"
+checksum = "a01a9a8bbdd3ad4e024b75ac1e69d4c8fd95913744e7682d88776ee59135c819"
 dependencies = [
  "cbindgen",
  "diesel",
  "dotenv",
+ "futures-util",
  "libc",
  "reqwest",
+ "serde",
+ "serde_json",
+ "tokio",
 ]
 
 [[package]]

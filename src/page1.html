@@ -12,9 +12,13 @@
         <div class="content">
             <h1>设备检测页面</h1>
             <!-- 使用onclick属性直接调用JavaScript函数 -->
-            <button id="detectButton" onclick="detect_device()">连接设备</button>
+            <button id="detectButton" onclick="detect_device()">检测设备</button>
             <!-- 新增的显示框 -->
             <div id="outputBox" class="output-box"></div>
+
+            <h2>获取设备信息</h2>
+            <label for="deviceInput"></label><input type="text" id="deviceInput" name="deviceInput" placeholder="输入设备id">
+            <div id="phone_data" class="output-box"></div>
         </div>
     </body>
     </html>

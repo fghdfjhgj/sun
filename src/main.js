@@ -16,7 +16,38 @@ async function showContent(pageId) {
   await loadContent(pageId);
   document.getElementById(pageId).style.display = 'block';
 }
-async function detect_device() {
+async function detect_device(id) {
+    await devices()
+    await phone_data(id)
+}
+async function phone_data(id) {
+    try {
+        let res12="安卓版本:"+await invoke('get_phone_android_version',{id:id})
+        let res13="SDK版本::"+await invoke('get_phone_android_sdk_version',{id:id})
+        let a="设备是否解锁:"+await invoke('get_phone_bootloader_if_start',{id:id})
+        let b="设备内核版本:"+await invoke('get_phone_android_kernel_version',{id:id})
+        let c="设备品牌:"+await invoke('get_phone_ro_product_brand',{id:id})
+        let d="设备型号:"+await invoke('get_phone_ro_product_model',{id:id})
+        let e="设备制造商:"+await invoke('get_phone_ro_product_manufacturer',{id:id})
+       let f="设备产品名称:"+ await invoke('get_phone_ro_product_device',{id:id})
+        let g="设备架构:"+ await invoke('get_phone_system_cpu_abi',{id:id})
+        let result = `${res12}\n${res13}\n${a}\n${b}\n${c}\n${d}\n${e}\n${f}\n${g}`;
+        const outputBox = document.getElementById('phone_data');
+        if (outputBox) {
+            outputBox.innerHTML = result;
+        } else {
+            console.error('Element with ID "outputBox" not found.');
+        }
+    }catch (error){
+
+    }
+}
+
+
+
+
+
+async function devices() {
     try {
         // 调用名为 'detect_device' 的命令，并等待其完成
         let res = await invoke("detect_device");
@@ -52,6 +83,7 @@ async function detect_device() {
             outputBox.innerHTML = "Error fetching device list.";
         }
     }
+
 }
 
 
